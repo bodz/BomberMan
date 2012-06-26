@@ -22,7 +22,7 @@ public class Map extends JFrame {
         this.mapFile = mapFile;
         GridLayout grid = new GridLayout(12, 16);
         setLayout(grid);
-        setIconImage(new ImageIcon("BackGround.png"));
+        setBackground(Color.GRAY);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(480, 360);
         this.setResizable(false);

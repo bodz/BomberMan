@@ -18,7 +18,7 @@ public class MapFile extends FileIO {
     //=======================================================================================//
     
     public MapFile(File mapFile) throws IOException {
-        super(mapFile, "rw", lignSize);
+        super(mapFile, "rw", 16);
         this.mapFile = mapFile;        
     }
     
