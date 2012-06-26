@@ -6,27 +6,21 @@ import Utilitaires.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class Map extends JFrame {
-    
+public class CaseImage extends JLabel {
+
     //=======================================================================================//
     //                                                                           VARIABLES                                                                                 //
     //=======================================================================================//
     
-    private MapFile mapFile;
+    private String imgFile;
     
     //=======================================================================================//
     //                                                                       CONSTRUCTORS                                                                             //
     //=======================================================================================//
     
-    public Map(MapFile mapFile) {
-        this.mapFile = mapFile;
-        GridLayout grid = new GridLayout(12, 16);
-        setLayout(grid);
-        this.setSize(360, 480);
-        this.setVisible(true);
-        
-        
+    public CaseImage(String imgFile) {
+        setIcon(new ImageIcon(imgFile));
     }
-    
 
+    
 }
