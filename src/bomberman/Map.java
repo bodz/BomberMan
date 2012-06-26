@@ -24,8 +24,8 @@ public class Map extends JFrame {
         setLayout(grid);
         setBackground(Color.RED);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(960, 720);
-        //this.setResizable(false);
+        this.setSize(480, 360);
+        this.setResizable(false);
         this.setTitle("BomberMan by BlueBirdTeam");
         this.setVisible(true);
         this.setLocationRelativeTo(null);
