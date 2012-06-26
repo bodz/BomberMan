@@ -10,6 +10,7 @@ public class BomberMan {
         MapFile mapFile = new MapFile(new File("map.bin"));
        
         new Map(mapFile);
+  
         
         
        

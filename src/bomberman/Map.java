@@ -1,10 +1,10 @@
 package bomberman;
 
 import java.io.*;
-import java.util.*;
-import Utilitaires.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class Map extends JFrame {
     
@@ -24,7 +24,7 @@ public class Map extends JFrame {
         setLayout(grid);
         setBackground(Color.RED);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(480, 360);
+        this.setSize(960, 720);
         //this.setResizable(false);
         this.setTitle("BomberMan by BlueBirdTeam");
         this.setVisible(true);
@@ -33,6 +33,17 @@ public class Map extends JFrame {
         char[][] mapTab = mapFile.readMap();
         String temp = "";
         
+        BufferedImage brick = null;
+        BufferedImage wall = null;
+        
+        try {
+            brick = ImageIO.read(new File("Brick30px.png"));
+            wall = ImageIO.read(new File("Wall.png"));
+        }
+        catch(IOException e) {
+            
+        }
+        
         for(int i1 = 0; i1 < 12; i1++) {
             for (int i2 = 0; i2 < 16; i2++) {
                 temp = "";
@@ -40,12 +51,13 @@ public class Map extends JFrame {
                 
                 switch(temp) {                   
                     case "o" :
+                        this.add(new JLabel("O"));
                         break;
                     case "w" :
-                        this.add(new JButton((Icon) new File("Wall.png")));
+                        this.add(new JLabel(new ImageIcon(brick)));
                         break;
                     case "b" :
-                        this.add(new JButton((Icon) new File("Brick.png")));
+                        this.add(new JLabel(new ImageIcon(wall)));
                         break;
                 }
             }
