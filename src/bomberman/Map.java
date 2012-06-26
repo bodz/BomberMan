@@ -22,8 +22,13 @@ public class Map extends JFrame {
         this.mapFile = mapFile;
         GridLayout grid = new GridLayout(12, 16);
         setLayout(grid);
-        this.setSize(360, 480);
+        setIconImage(new ImageIcon("BackGround.png"));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(480, 360);
+        this.setResizable(false);
+        this.setTitle("BomberMan by BlueBirdTeam");
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
         
         
     }

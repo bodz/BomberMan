@@ -11,13 +11,14 @@ public class MapFile extends FileIO {
     //=======================================================================================//
     
     private File mapFile;
+    private int lignSize = 16;
     
     //=======================================================================================//
     //                                                                       CONSTRUCTORS                                                                             //
     //=======================================================================================//
     
     public MapFile(File mapFile) throws IOException {
-        super(mapFile, "rw", 16);
+        super(mapFile, "rw", lignSize);
         this.mapFile = mapFile;        
     }
     
@@ -41,23 +42,23 @@ public class MapFile extends FileIO {
     }
     
     private boolean descriptAndWriteMapLign(String lign) throws IOException {
-        if(lign.length() == 16) {
-            writeString(lign, 16);
+        if(lign.length() == lignSize) {
+            writeString(lign, lignSize);
             return true;
         }
         return false;
     }
     
     public char[][] readMap() throws IOException {
-        char[][] mapTab = new char[12][16];
+        char[][] mapTab = new char[12][lignSize];
         String lign;
         
         seekFile(1);
         
         for(int i1 = 0; i1 < 12; i1++) {
-            lign = readString(16);
+            lign = readString(lignSize);
             
-            for(int i2 = 0; i2 < 16; i2++) {
+            for(int i2 = 0; i2 < lignSize; i2++) {
                 mapTab[i1][i2] = lign.charAt(i2);
             }                        
         }
@@ -68,7 +69,7 @@ public class MapFile extends FileIO {
     @Override
     public String toString() {
         String retour = "";
-        char[][] tab = new char[12][16];
+        char[][] tab = new char[12][lignSize];
         
         try {
             tab = readMap();
@@ -78,7 +79,7 @@ public class MapFile extends FileIO {
         }
         
         for(int i1 = 0; i1 < 12; i1++) {
-            for(int i2 = 0; i2 < 16; i2++) {
+            for(int i2 = 0; i2 < lignSize; i2++) {
                 retour += tab[i1][i2];
             }
             retour += "\n";
