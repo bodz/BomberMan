@@ -27,7 +27,7 @@ public class Map extends JFrame {
         this.setSize(480, 360);
         this.setResizable(false);
         this.setTitle("BomberMan by BlueBirdTeam");
-        //this.setVisible(true);
+        this.setVisible(true);
         this.setLocationRelativeTo(null);
 
         char[][] mapTab = mapFile.readMap();
