@@ -7,7 +7,8 @@ public class BomberMan {
 
     public static void main(String[] args) throws IOException {
         
-        
+        MapFile mapFile = new MapFile(new File("map.bin"));
+        System.out.println(mapFile);
         
        
     }
