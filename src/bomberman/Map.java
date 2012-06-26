@@ -37,7 +37,7 @@ public class Map extends JFrame {
         BufferedImage wall = null;
         
         try {
-            brick = ImageIO.read(new File("Brick30px.png"));
+            brick = ImageIO.read(new File("Brick.png"));
             wall = ImageIO.read(new File("Wall.png"));
         }
         catch(IOException e) {
