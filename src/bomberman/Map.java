@@ -40,13 +40,12 @@ public class Map extends JFrame {
                 
                 switch(temp) {                   
                     case "o" :
-                        add(new JLabel("O"));
                         break;
                     case "w" :
-                        this.add(new JLabel("W"));
+                        this.add(new JButton((Icon) new File("Wall.png")));
                         break;
                     case "b" :
-                        this.add(new JLabel("B"));
+                        this.add(new JButton((Icon) new File("Brick.png")));
                         break;
                 }
             }

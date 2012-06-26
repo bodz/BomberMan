@@ -6,21 +6,24 @@ import Utilitaires.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class CaseImage extends JLabel {
+public class CaseImage extends Container {
 
     //=======================================================================================//
     //                                                                           VARIABLES                                                                                 //
     //=======================================================================================//
     
-    private String imgFile;
+    private Image imgFile = getToolkit().getImage("Wall.png");
     
     //=======================================================================================//
     //                                                                       CONSTRUCTORS                                                                             //
     //=======================================================================================//
     
     public CaseImage(String imgFile) {
-        setIcon(new ImageIcon(imgFile));
+        paint();
     }
 
+    public void paint() {
+        
+    }
     
 }
