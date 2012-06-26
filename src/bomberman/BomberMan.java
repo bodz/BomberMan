@@ -11,6 +11,7 @@ public class BomberMan {
        
         new Map(mapFile);
         
+        
        
     }
 
