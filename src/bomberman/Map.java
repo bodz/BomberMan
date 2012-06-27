@@ -3,9 +3,6 @@ package bomberman;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import Utilitaires.*;
 
 public class Map extends JPanel {
     
@@ -19,19 +16,14 @@ public class Map extends JPanel {
     //                                                                       CONSTRUCTORS                                                                             //
     //=======================================================================================//
     
-    public Map(MapFile mapFile) throws IOException {
+    public Map(MapFile mapFile) throws IOException, CloneNotSupportedException {
         this.mapFile = mapFile;
-        GridLayout grid = new GridLayout(12, 16);
-       
-        char[][] mapTab = mapFile.readMap();
-        String temp;
         
-        JLabel red = new JLabel();
-        red.setBackground(Color.red);
-        JLabel blue = new JLabel();
-        blue.setBackground(Color.blue);
-        JLabel black = new JLabel();
-        black.setBackground(Color.black);
+        GridLayout grid = new GridLayout(12, 16);
+        setLayout(grid);
+        
+        char[][] mapTab = mapFile.readMap();
+        String temp;       
         
         for(int i1 = 0; i1 < 12; i1++) {
             for (int i2 = 0; i2 < 16; i2++) {
@@ -40,13 +32,13 @@ public class Map extends JPanel {
                 
                 switch(temp) {                   
                     case "o" :
-                        this.add(red);
+                        add(new JLabel("o"));
                         break;
                     case "w" :
-                        this.add(black);
+                        add(new Case("Wall.jpg"));
                         break;
                     case "b" :
-                        this.add(blue);
+                        add(new Case("Brick.jpg"));
                         break;
                 }
             }

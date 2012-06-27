@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class BomberMan {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CloneNotSupportedException {
         
         MapFile mapFile = new MapFile(new File("map.bin"));
        
@@ -15,6 +15,7 @@ public class BomberMan {
         
         
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLocationRelativeTo(null);
         window.setSize(480, 360);
         window.setResizable(true);
         window.setBackground(Color.CYAN);
