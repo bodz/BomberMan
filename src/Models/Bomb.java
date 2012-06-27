@@ -1,4 +1,4 @@
-package bomberman;
+package Models;
 
 import java.io.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package bomberman;
+package Files;
 
 import java.io.*;
 import java.util.*;
@@ -7,14 +7,15 @@ import Utilitaires.*;
 public class MapFile extends FileIO {
     
     //=======================================================================================//
-    //                                                                           VARIABLES                                                                                 //
+    //                                                                           VARIABLES   //
     //=======================================================================================//
     
     private File mapFile;
-    private int lignSize = 16;
+    private final int nbCol = 16;
+    private final int nbLine = 12;
     
     //=======================================================================================//
-    //                                                                       CONSTRUCTORS                                                                             //
+    //                                                                       CONSTRUCTORS    //
     //=======================================================================================//
     
     public MapFile(File mapFile) throws IOException {
@@ -23,42 +24,49 @@ public class MapFile extends FileIO {
     }
     
     //=======================================================================================//
-    //                                                                              METHODS                                                                                //
+    //                                                                              METHODS  //
     //=======================================================================================//
     
+    public int getNbLine() {
+        return nbLine;
+    }
+    
+    public int getNbCol() {
+        return nbCol;
+    }
     public void writeMap() throws IOException {
-        String lign = "";
+        String line = "";
         boolean success;
         
-        for(int i1 = 0; i1 < 12; i1++) {
+        for(int i1 = 0; i1 < nbLine; i1++) {
             
             do {           
-                System.out.print("Lign" + i1 + " :");
-                lign = Scan.readString();
-                success = descriptAndWriteMapLign(lign);
+                System.out.print("Line" + i1 + " :");
+                line = Scan.readString();
+                success = descriptAndWriteMapLign(line);
                 System.out.print("\n");
             } while(!success);
         }       
     }
     
     private boolean descriptAndWriteMapLign(String lign) throws IOException {
-        if(lign.length() == lignSize) {
-            writeString(lign, lignSize);
+        if(lign.length() == nbCol) {
+            writeString(lign, nbCol);
             return true;
         }
         return false;
     }
     
     public char[][] readMap() throws IOException {
-        char[][] mapTab = new char[12][lignSize];
+        char[][] mapTab = new char[nbLine][nbCol];
         String lign;
         
         seekFile(1);
         
-        for(int i1 = 0; i1 < 12; i1++) {
-            lign = readString(lignSize);
+        for(int i1 = 0; i1 < nbLine; i1++) {
+            lign = readString(nbCol);
             
-            for(int i2 = 0; i2 < lignSize; i2++) {
+            for(int i2 = 0; i2 < nbCol; i2++) {
                 mapTab[i1][i2] = lign.charAt(i2);
             }                        
         }
@@ -69,7 +77,7 @@ public class MapFile extends FileIO {
     @Override
     public String toString() {
         String retour = "";
-        char[][] tab = new char[12][lignSize];
+        char[][] tab = new char[nbLine][nbCol];
         
         try {
             tab = readMap();
@@ -78,8 +86,8 @@ public class MapFile extends FileIO {
             e.printStackTrace();
         }
         
-        for(int i1 = 0; i1 < 12; i1++) {
-            for(int i2 = 0; i2 < lignSize; i2++) {
+        for(int i1 = 0; i1 < nbLine; i1++) {
+            for(int i2 = 0; i2 < nbCol; i2++) {
                 retour += tab[i1][i2];
             }
             retour += "\n";
