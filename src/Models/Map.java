@@ -21,7 +21,7 @@ public class Map extends JPanel {
     public Map(MapFile mapFile) throws IOException {
         this.mapFile = mapFile;
         
-        //j'ai retiré ma blague foireuse
+        //lol
         GridLayout grid = new GridLayout(mapFile.getNbLine(), mapFile.getNbCol());
         setLayout(grid);
         
