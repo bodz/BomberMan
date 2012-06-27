@@ -1,18 +1,18 @@
-package bomberman;
+package Controllers;
 
-import java.io.File;
+import Files.MapFile;
+import Models.Map;
+import java.awt.Color;
 import java.io.*;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
 
-public class BomberMan {
+public class MainController{
 
-    public static void main(String[] args) throws IOException, CloneNotSupportedException {
+    public static void main(String[] args) throws IOException {
         
         MapFile mapFile = new MapFile(new File("map.bin"));
        
-        JFrame window = new JFrame();
-        
+        JFrame window = new JFrame();        
         
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocationRelativeTo(null);
@@ -21,10 +21,7 @@ public class BomberMan {
         window.setBackground(Color.CYAN);
         window.setContentPane(new Map(mapFile));
         window.setVisible(true);
-        
-  
-        
-        
+     
        
     }
 

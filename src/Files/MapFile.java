@@ -1,4 +1,4 @@
-package bomberman;
+package Files;
 
 import java.io.*;
 import java.util.*;

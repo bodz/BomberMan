@@ -1,5 +1,7 @@
-package bomberman;
+package Models;
 
+import Files.MapFile;
+import Vues.Case;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +18,7 @@ public class Map extends JPanel {
     //                                                                       CONSTRUCTORS                                                                             //
     //=======================================================================================//
     
-    public Map(MapFile mapFile) throws IOException, CloneNotSupportedException {
+    public Map(MapFile mapFile) throws IOException {
         this.mapFile = mapFile;
         
         GridLayout grid = new GridLayout(12, 16);
@@ -32,7 +34,7 @@ public class Map extends JPanel {
                 
                 switch(temp) {                   
                     case "o" :
-                        add(new JLabel("o"));
+                        add(new JLabel(""));
                         break;
                     case "w" :
                         add(new Case("Wall.jpg"));
