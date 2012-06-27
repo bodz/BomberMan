@@ -2,7 +2,7 @@ package Controllers;
 
 import Files.MapFile;
 import Models.Map;
-import java.awt.Color;
+import java.awt.Toolkit;
 import java.io.*;
 import javax.swing.JFrame;
 
@@ -16,9 +16,10 @@ public class MainController{
         
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocationRelativeTo(null);
-        window.setSize(480, 360);
-        window.setResizable(true);
-        window.setBackground(Color.CYAN);
+        window.setSize(1200, 900);
+        window.setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - 1200)/2, (Toolkit.getDefaultToolkit().getScreenSize().height - 900)/2);
+        window.setResizable(false);
+
         window.setContentPane(new Map(mapFile));
         window.setVisible(true);
      
