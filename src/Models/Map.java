@@ -21,7 +21,6 @@ public class Map extends JPanel {
     public Map(MapFile mapFile) throws IOException {
         this.mapFile = mapFile;
         
-        //lol
         GridLayout grid = new GridLayout(mapFile.getNbLine(), mapFile.getNbCol());
         setLayout(grid);
         
@@ -35,15 +34,15 @@ public class Map extends JPanel {
                 switch(mapTab[i1][i2]) {                   
                     case 'o' :
                         // Case "vide"
-                        add(new Case("test.png"));
+                        add(new EmptyCase("test.png"));
                         break;
                     case 'w' :
                         // Case mur
-                        add(new Case("Wall.jpg"));
+                        add(new WallCase("Wall.jpg"));
                         break;
                     case 'b' :
                         // Case brique
-                        add(new Case("Brick.jpg"));
+                        add(new BrickCase("Brick.jpg"));
                         break;
                 }
                 // fin remplissage map
