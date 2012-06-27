@@ -23,6 +23,7 @@ public class Map extends JPanel {
         
         GridLayout grid = new GridLayout(mapFile.getNbLine(), mapFile.getNbCol());
         setLayout(grid);
+        setBackground(Color.BLACK);
         
         char[][] mapTab = mapFile.readMap();
         
@@ -31,7 +32,7 @@ public class Map extends JPanel {
                 
                 switch(mapTab[i1][i2]) {                   
                     case 'o' :
-                        add(new JLabel(""));
+                        add(new Case("test.png"));
                         break;
                     case 'w' :
                         add(new Case("Wall.jpg"));
