@@ -21,6 +21,7 @@ public class Map extends JPanel {
     public Map(MapFile mapFile) throws IOException {
         this.mapFile = mapFile;
         
+        //Qu'est ce qui est rond et vert, et qui monte et qui descend ?
         GridLayout grid = new GridLayout(mapFile.getNbLine(), mapFile.getNbCol());
         setLayout(grid);
         setBackground(Color.BLACK);
